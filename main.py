@@ -10,3 +10,9 @@ def error(message):
     print('[{:^50}]'.format(message))
     print('[' + '=' * 50 + ']')
     return
+
+def welcome():
+    print('[' + '=' * 50 + ']')
+    print('[{:^50}]'.format('welcome'))
+    print('[' + '=' * 50 + ']')
+    return
