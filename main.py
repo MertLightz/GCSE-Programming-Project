@@ -20,8 +20,6 @@ def welcome():
     print()
     return
 
-########################Used for Start Menu##################
-
 def get_option():
     try:
         option = int(input('enter: '))
@@ -29,6 +27,8 @@ def get_option():
         message('invalid data type')
         start()
     return option
+
+########################Used for Start Menu##################
 
 def start_menu():
     print('[' + '=' * 50 + ']')
@@ -132,5 +132,21 @@ def main_menu():
     print('[' + '=' * 50 + ']')
     print()
     return
-    
+
+def main():
+    blank_page()
+    welcome()
+    main_menu()
+    option = get_option()
+
+    if option == 1:
+        play()
+    if option == 2:
+        rules()
+    if option == 3:
+        leaderboard()
+    else:
+        message('invalid option')
+        main()
+
 start()
