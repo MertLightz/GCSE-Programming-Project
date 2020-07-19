@@ -7,9 +7,9 @@ def blank_page():
         print()
     return
 
-def error(message):
+def message(abc):
     print('[' + '=' * 50 + ']')
-    print('[{:^50}]'.format(message))
+    print('[{:^50}]'.format(abc))
     print('[' + '=' * 50 + ']')
     return
 
@@ -26,7 +26,7 @@ def get_option():
     try:
         option = int(input('enter: '))
     except:
-        error('invalid data type')
+        message('invalid data type')
         start()
     return option
 
@@ -52,7 +52,7 @@ def start():
     if option == 3:
         quit()
     else:
-        error('invalid option')
+        message('invalid option')
         start()
 
 ########################Used for Login#######################
@@ -61,9 +61,9 @@ def login():
     blank_page()
     valid = False
     
-    error('login')
+    message('login')
     print()
-    error('enter username and password')
+    message('enter username and password')
     print()
 
     input_username = input('username: ')
@@ -81,10 +81,10 @@ def login():
     
     blank_page()
     if valid == True:
-        error('successfully logged in')
+        message('successfully logged in')
         main()
     else:
-        error('invalid username or password')
+        message('invalid username or password')
         start()
 
 ########################Used for Register####################      
