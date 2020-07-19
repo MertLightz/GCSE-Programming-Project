@@ -32,5 +32,23 @@ def get_option():
         option = int(input('enter: '))
     except:
         error('invalid data type')
-        #start()
+        start()
     return option
+
+def start():
+    blank_page()
+    welcome()
+    start_menu()
+    option = get_option()
+
+    if option == 1:
+        login()
+    if option == 2:
+        register()
+    if option == 3:
+        quit()
+    else:
+        error('invalid option')
+        start()
+
+start()
