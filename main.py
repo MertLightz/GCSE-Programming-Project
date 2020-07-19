@@ -122,4 +122,15 @@ def register():
     message('registered')
     start()
 
+########################Used for Main Menu###################
+
+def main_menu():
+    print('[' + '=' * 50 + ']')
+    print('[{:^50}]'.format('1 - play game  '))
+    print('[{:^50}]'.format('2 - rules      '))
+    print('[{:^50}]'.format('3 - leaderboard'))
+    print('[' + '=' * 50 + ']')
+    print()
+    return
+    
 start()
