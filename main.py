@@ -61,13 +61,9 @@ def login():
     blank_page()
     valid = False
     
-    print('[' + '=' * 50 + ']')
-    print('[{:^50}]'.format('login'))
-    print('[' + '=' * 50 + ']')
+    error('login')
     print()
-    print('[' + '=' * 50 + ']')
-    print('[{:^50}]'.format('enter username and password'))
-    print('[' + '=' * 50 + ']')
+    error('enter username and password')
     print()
 
     input_username = input('username: ')
@@ -85,14 +81,14 @@ def login():
     
     blank_page()
     if valid == True:
-        print('[' + '=' * 50 + ']')
-        print('[{:^50}]'.format('successfully logged in'))
-        print('[' + '=' * 50 + ']')
+        error('successfully logged in')
         main()
     else:
-        print('[' + '=' * 50 + ']')
-        print('[{:^50}]'.format('username or password is invalid'))
-        print('[' + '=' * 50 + ']')
+        error('invalid username or password')
         start()
-        
+
+########################Used for Register####################      
+
+
+
 start()
