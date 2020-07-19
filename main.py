@@ -26,3 +26,11 @@ def start_menu():
     print('[' + '=' * 50 + ']')
     print()
     return
+
+def get_option():
+    try:
+        option = int(input('enter: '))
+    except:
+        error('invalid data type')
+        #start()
+    return option
