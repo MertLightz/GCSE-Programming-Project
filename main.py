@@ -72,10 +72,8 @@ def login():
     with open('users.txt', 'r') as users:
         for each_line in users:
             new_line = each_line.strip('\n').split(',')
-            username = new_line[0]
-            password = new_line[1]
             
-            if input_username == username and input_password == password:
+            if input_username == new_line[0] and input_password == new_line[1]:
                 valid = True
                 break
     
@@ -89,6 +87,39 @@ def login():
 
 ########################Used for Register####################      
 
+def register():
+    blank_page()
 
+    message('register')
+    print()
+    message('enter username and password')
+    print()
+
+    input_username = input('username: ')
+    input_password = input('password: ')
+    print()
+
+    message('confirm password')
+    print()
+    confirm_password = input('confirm password: ')
+
+    if input_password != confirm_password:
+        blank_page()
+        message('passwords do not match')
+        start()
+    
+    with open('users.txt', 'r') as users:
+        for each_line in users:
+            new_line = each_line.strip('\n').split(',')
+            if new_line[0] == input_username:
+                blank_page()
+                message('username is taken')
+                start()
+    
+    with open('users.txt', 'a') as users:
+        users.write(input_username + ',' + input_password + '\n')
+
+    message('registered')
+    start()
 
 start()
