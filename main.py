@@ -172,6 +172,38 @@ def rules():
     print('[{:^50}]'.format('4 - incorrect 2nd time = lose    '))
     print('[' + '=' * 50 + ']')
     print()
-    
+
     enter_to_continue()
-rules()
+
+########################Used for Leaderboard#################
+
+def leaderboard():
+    blank_page()
+    message('leaderboard')
+
+    print()
+    print('[' + '=' * 51 + ']')
+    print('[{:^25}|{:^25}]'.format('name', 'score'))
+    print('[' + '=' * 51 + ']')
+    
+    empty_list = []
+    with open('leaderboard.txt', 'r') as leaderboard:
+        for each_line in leaderboard:
+            new_line = each_line.strip('\n').split(',')
+            empty_list.append(new_line)
+    
+    show = sorted(empty_list, key = lambda x:int(x[1]), reverse = True)
+
+    count = 0
+
+    for eachScore in show:
+        print("[{:^25}|{:^25}]".format(eachScore[0], eachScore[1]))
+        print("[" + "=" * 51 + "]")
+        count = count + 1
+        if count == 5:
+            break
+
+    print()
+    enter_to_continue()
+
+start()

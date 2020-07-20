@@ -1,2 +1,0 @@
-mert,mert
-test,test
