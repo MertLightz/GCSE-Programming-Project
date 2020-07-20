@@ -2,6 +2,14 @@
 
 ########################Used Globally########################
 
+def enter_to_continue():
+    print('[' + '=' * 50 + ']')
+    print('[{:^50}]'.format('press enter to continue'))
+    print('[' + '=' * 50 + ']')
+
+    input()
+    return
+
 def blank_page():
     for i in range(0,100):
         print()
@@ -149,4 +157,21 @@ def main():
         message('invalid option')
         main()
 
-start()
+########################Used for Rules#######################
+
+def rules():
+    blank_page()
+
+    message('rules')
+
+    print()
+    print('[' + '=' * 50 + ']')
+    print('[{:^50}]'.format('1 - you have 2 chances to guess  '))
+    print('[{:^50}]'.format('2 - correct 1st time   = 3 points'))
+    print('[{:^50}]'.format('3 - correct 2nd time   = 1 points'))
+    print('[{:^50}]'.format('4 - incorrect 2nd time = lose    '))
+    print('[' + '=' * 50 + ']')
+    print()
+    
+    enter_to_continue()
+rules()
