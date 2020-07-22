@@ -1,5 +1,7 @@
 #GCSE Programming Project
 
+import random
+
 ########################Used Globally########################
 
 def enter_to_continue():
@@ -206,4 +208,50 @@ def leaderboard():
     print()
     enter_to_continue()
 
-start()
+########################Used for Game########################
+
+def get_number_of_songs():
+    number_of_songs = 0
+    with open('songs.txt', 'r') as songs:
+        for each_line in songs:
+            number_of_songs += 1
+    return number_of_songs
+
+def get_new_song(number_of_songs,already_selected):
+    random_song = random.randint(0, number_of_songs - 1)
+    while random_song in already_selected:
+        random_song = random.randint(0, number_of_songs)
+
+    with open('songs.txt', 'r') as songs:
+        for each_line in songs:
+            new_line = each_line.strip('\n').split(',')
+            if int(new_line[0]) == random_song:
+                current_artist = new_line[1]
+                current_song = new_line[2]
+                break
+    return random_song,current_artist,current_song
+
+def get_points():
+    pass
+
+def play():
+    already_selected = []
+    points = 0
+
+    blank_page()
+    message('starting game...')
+    blank_page()
+
+    number_of_songs = get_number_of_songs()
+
+    random_song,current_artist,current_song = get_new_song(number_of_songs,already_selected)
+    
+    already_selected.append(random_song)
+    
+    points = get_points()
+    
+    print('[' + '=' * 51 + ']')
+    print('[{:^25}|{:^25}]'.format(current_artist, current_song))
+    print('[' + '=' * 51 + ']')
+
+play()
