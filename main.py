@@ -273,6 +273,13 @@ def rules():
 
 def leaderboard():
     blank_page()
+    with open('leaderboard.txt', 'r') as leaderboard:
+        if leaderboard.readlines() == []:
+            message('leaderboard.txt is empty')
+            print()
+            enter_to_continue()
+            main()
+            
     message('leaderboard')
 
     print()
