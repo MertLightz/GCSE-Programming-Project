@@ -1,5 +1,5 @@
-0,Arizona Zervas,ROXANNE
-1,Roddy Ricch,The Box
-2,Ed Sheeran,Perfect
-3,Billie Eilish,bad guy
-4,Lil Nas X,Old Town Road
+0,Arizona Zervas,ROXANNE,R******
+1,Roddy Ricch,The Box,T** B**
+2,Ed Sheeran,Perfect,P******
+3,Billie Eilish,bad guy,b** g**
+4,Lil Nas X,Old Town Road,O** T*** R***
