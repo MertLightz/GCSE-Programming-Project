@@ -111,8 +111,6 @@ def start_menu():
 
 def start():
     blank_page()
-    checks()
-    blank_page()
     welcome()
     start_menu()
     option = get_option()
@@ -414,4 +412,6 @@ def play():
     enter_to_continue()
     main()
 
+
+checks()
 start()
