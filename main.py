@@ -51,6 +51,49 @@ def get_option():
 
 ########################Used for Start Menu##################
 
+def checks():
+    blank_page()
+    message('checking for users.txt')
+    time.sleep(1)
+    blank_page()
+
+    try:
+        with open('users.txt', 'r') as users:
+            pass
+    except:
+        with open('users.txt', 'w') as users:
+            pass
+        message('created users.txt')
+        time.sleep(1)
+
+    blank_page()
+    message('checking for leaderboard.txt')
+    time.sleep(1)
+    blank_page()
+
+    try:
+        with open('leaderboard.txt', 'r') as leaderboard:
+            pass
+    except:
+        with open('leaderboard.txt', 'w') as leaderboard:
+            pass
+        message('created leaderboard.txt')
+        time.sleep(1)
+
+    blank_page()
+    message('checking for songs.txt')
+    time.sleep(1)
+    blank_page()
+    
+    try:
+        with open('songs.txt', 'r') as songs:
+            pass
+    except:
+        with open('songs.txt', 'w') as songs:
+            pass
+        message('created songs.txt')
+        time.sleep(1)
+
 def start_menu():
     print('[' + '=' * 50 + ']')
     time.sleep(0.1)
@@ -67,6 +110,8 @@ def start_menu():
     return
 
 def start():
+    blank_page()
+    checks()
     blank_page()
     welcome()
     start_menu()
