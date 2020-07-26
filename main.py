@@ -337,6 +337,13 @@ def get_new_song(number_of_songs,already_selected):
     return current_artist,current_song,hidden_song
 
 def play():
+    blank_page()
+    with open('songs.txt', 'r') as songs:
+        if songs.readlines() == []:
+            message('songs.txt is empty')
+            print()
+            enter_to_continue()
+            main()
     already_selected = []
     points = 0
 
