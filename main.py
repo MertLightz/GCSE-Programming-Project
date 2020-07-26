@@ -128,6 +128,14 @@ def start():
 ########################Used for Login#######################
 
 def login():
+    blank_page()
+    with open('users.txt', 'r') as users:
+        if users.readlines() == []:
+            message('users.txt is empty')
+            print()
+            enter_to_continue()
+            start()
+            
     global input_username
     blank_page()
     valid = False
