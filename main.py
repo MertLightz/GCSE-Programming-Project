@@ -93,6 +93,8 @@ def checks():
         url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
         r = requests.get(url, allow_redirects = True)
         open('songs.txt', 'wb').write(r.content)
+        message('downloading music.txt from GitHub')
+        time.sleep(1)
 
 def start_menu():
     print('[' + '=' * 50 + ']')
