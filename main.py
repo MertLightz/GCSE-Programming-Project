@@ -93,12 +93,16 @@ def checks():
         with open('songs.txt', 'r') as songs:
             pass
     except:
-        url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
-        r = requests.get(url, allow_redirects = True)
-        open('songs.txt', 'wb').write(r.content)
-        message('downloading music.txt from GitHub')
-        time.sleep(1)
-
+        try:
+            url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
+            r = requests.get(url, allow_redirects = True)
+            open('songs.txt', 'wb').write(r.content)
+            message('downloading music.txt from GitHub')
+            time.sleep(1)
+        except:
+            message('unable to download songs.txt due to WiFi issues')
+            time.sleep(1)
+            
 def start_menu():
     print('[' + '=' * 50 + ']')
     time.sleep(0.1)
