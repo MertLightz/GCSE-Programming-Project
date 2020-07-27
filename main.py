@@ -46,7 +46,10 @@ def get_option():
     try:
         option = int(input('enter: '))
     except:
+        blank_page()
         message('invalid data type')
+        print()
+        enter_to_continue()
         start()
     return option
 
@@ -433,9 +436,9 @@ def play():
             print()
             time.sleep(0.1)
 
-            player_answer = input('Song Name: ').lower()
+            player_answer = input('Song Name: ').lower().replace(' ', '')
             blank_page()
-            current_song = current_song.lower()
+            current_song = current_song.lower().replace(' ', '')
             
             if player_answer == current_song and i == 0:
                 message('correct, you gained 3 points')
