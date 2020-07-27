@@ -189,8 +189,27 @@ def register():
 
     input_username = input('username: ')
     time.sleep(0.1)
+    
+    with open('users.txt', 'r') as users:
+        for each_line in users:
+            new_line = each_line.strip('\n').split(',')
+            if new_line[0] == input_username:
+                blank_page()
+                message('username is taken')
+                print()
+                enter_to_continue()
+                start()
+                
     input_password = input('password: ')
     time.sleep(0.1)
+
+    if input_password.strip(' ') == '':
+        blank_page()
+        message('password cannot be blank')
+        print()
+        enter_to_continue()
+        start()
+        
     print()
     time.sleep(0.1)
 
