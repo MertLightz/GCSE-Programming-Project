@@ -1,6 +1,7 @@
 #GCSE Programming Project
 import time
 import random
+import requests
 global input_username
 
 ########################Used Globally########################
@@ -89,10 +90,9 @@ def checks():
         with open('songs.txt', 'r') as songs:
             pass
     except:
-        with open('songs.txt', 'w') as songs:
-            pass
-        message('created songs.txt')
-        time.sleep(1)
+        url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
+        r = requests.get(url, allow_redirects = True)
+        open('songs.txt', 'wb').write(r.content)
 
 def start_menu():
     print('[' + '=' * 50 + ']')
@@ -122,7 +122,10 @@ def start():
     if option == 3:
         quit()
     else:
+        blank_page()
         message('invalid option')
+        print()
+        enter_to_continue()
         start()
 
 ########################Used for Login#######################
@@ -196,6 +199,8 @@ def register():
     if input_password != confirm_password:
         blank_page()
         message('passwords do not match')
+        print()
+        enter_to_continue()
         start()
     
     with open('users.txt', 'r') as users:
@@ -228,6 +233,8 @@ def main_menu():
     time.sleep(0.1)
     print('[{:^50}]'.format('3 - leaderboard'))
     time.sleep(0.1)
+    print('[{:^50}]'.format('4 - quit       '))
+    time.sleep(0.1)
     print('[' + '=' * 50 + ']')
     time.sleep(0.1)
     print()
@@ -246,8 +253,13 @@ def main():
         rules()
     elif option == 3:
         leaderboard()
+    elif option == 4:
+        quit()
     else:
+        blank_page()
         message('invalid option')
+        print()
+        enter_to_continue()
         main()
 
 ########################Used for Rules#######################
@@ -411,6 +423,7 @@ def play():
                 points += 3
                 i = 0
                 break
+            
             elif player_answer == current_song and i == 1:
                 message('correct, you gained 1 points')
                 print()
@@ -418,10 +431,12 @@ def play():
                 points += 1
                 i = 0
                 new_song = True
+                
             elif player_answer != current_song and i == 1:
                 message('incorrect, you have lost')
                 print()
                 check = True
+                
             else:
                 message('incorrect')
                 print()
@@ -433,7 +448,6 @@ def play():
     add_to_leaderboard(input_username, points)
     enter_to_continue()
     main()
-
 
 checks()
 start()
