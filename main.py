@@ -56,53 +56,39 @@ def get_option():
 ########################Used for Start Menu##################
 
 def checks():
-    blank_page()
-    message('checking for users.txt')
-    time.sleep(1)
-    blank_page()
-
-    try:
-        with open('users.txt', 'r') as users:
-            pass
-    except:
-        with open('users.txt', 'w') as users:
-            pass
-        message('created users.txt')
-        time.sleep(1)
-
-    blank_page()
-    message('checking for leaderboard.txt')
-    time.sleep(1)
-    blank_page()
-
-    try:
-        with open('leaderboard.txt', 'r') as leaderboard:
-            pass
-    except:
-        with open('leaderboard.txt', 'w') as leaderboard:
-            pass
-        message('created leaderboard.txt')
-        time.sleep(1)
-
-    blank_page()
-    message('checking for songs.txt')
-    time.sleep(1)
-    blank_page()
-    
-    try:
-        with open('songs.txt', 'r') as songs:
-            pass
-    except:
-        try:
-            url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
-            r = requests.get(url, allow_redirects = True)
-            open('songs.txt', 'wb').write(r.content)
-            message('downloading music.txt from GitHub')
-            time.sleep(1)
-        except:
-            message('unable to download songs.txt due to WiFi issues')
-            time.sleep(1)
+    for i in range(0,3):
+        blank_page()
+        if i == 0:
+            file_name = 'users.txt'
+        elif i == 1:
+            file_name = 'leaderboard.txt'
+        elif i == 2:
+            file_name = 'songs.txt'
             
+        message('checking for ' + file_name)
+        time.sleep(1)
+        blank_page()
+    
+        try:
+            with open(file_name, 'r') as file:
+                pass
+        except:
+            with open(file_name, 'w') as file:
+                pass
+            if i == 2:
+                try:
+                    url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
+                    r = requests.get(url, allow_redirects = True)
+                    open('songs.txt', 'wb').write(r.content)
+                    message('downloading songs.txt from GitHub')
+                    time.sleep(1)
+                except:
+                    message('unable to download songs.txt due to WiFi issues')
+                    time.sleep(1)
+            else:
+                message('created ' + file_name)
+                time.sleep(1)
+
 def start_menu():
     print('[' + '=' * 50 + ']')
     time.sleep(0.1)
