@@ -398,9 +398,14 @@ def play():
     check = False
     while check == False:
         if number_of_songs == len(already_selected):
-            message('you have beaten the game')
-            add_to_leaderboard(input_username,points)
-            main()
+          blank_page()
+          message('you have beaten the game')
+          print()
+          message('adding to leaderboard')
+          print()
+          enter_to_continue()
+          add_to_leaderboard(input_username,points)
+          main()
             
         if new_song == True:
             current_artist,current_song,hidden_song = get_new_song(number_of_songs,already_selected)
