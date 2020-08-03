@@ -401,11 +401,7 @@ def play():
           blank_page()
           message('you have beaten the game')
           print()
-          message('adding to leaderboard')
-          print()
-          enter_to_continue()
-          add_to_leaderboard(input_username,points)
-          main()
+          break
             
         if new_song == True:
             current_artist,current_song,hidden_song = get_new_song(number_of_songs,already_selected)
