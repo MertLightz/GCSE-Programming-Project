@@ -241,20 +241,22 @@ def register():
 ########################Used for Main Menu###################
 
 def main_menu():
-    print('[' + '=' * 50 + ']')
-    time.sleep(0.1)
-    print('[{:^50}]'.format('1 - play game  '))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('2 - rules      '))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('3 - leaderboard'))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('4 - quit       '))
-    time.sleep(0.1)
-    print('[' + '=' * 50 + ']')
+    print('[' + '=' * 51 + ']')
+    for i in range(1,5):
+        time.sleep(0.1)
+        if i == 1:
+            text = 'login'
+        elif i == 2:
+            text = 'register'
+        elif i == 3:
+            text = 'leaderboard'
+        elif i == 4:
+            text = 'quit'
+        print('[{:^25}|{:^25}]'.format(i, text))
+        time.sleep(0.1)
+        print('[' + '=' * 51 + ']')
     time.sleep(0.1)
     print()
-    time.sleep(0.1)
     return
 
 def main():
