@@ -370,12 +370,9 @@ def get_new_song(number_of_songs,already_selected):
         for each_line in songs:
             new_line = each_line.strip('\n').split(',')
             if int(new_line[0]) == random_song:
-                current_artist = new_line[1]
-                current_song = new_line[2]
-                hidden_song = new_line[3]
                 break
     already_selected.append(random_song)
-    return current_artist,current_song,hidden_song
+    return new_line[1],new_line[2],new_line[3]
 
 def play():
     blank_page()
