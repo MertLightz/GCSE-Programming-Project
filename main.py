@@ -245,9 +245,9 @@ def main_menu():
     for i in range(1,5):
         time.sleep(0.1)
         if i == 1:
-            text = 'login'
+            text = 'play'
         elif i == 2:
-            text = 'register'
+            text = 'rules'
         elif i == 3:
             text = 'leaderboard'
         elif i == 4:
@@ -284,28 +284,29 @@ def main():
 
 def rules():
     blank_page()
-
     message('rules')
-
     print()
     time.sleep(0.1)
-    print('[' + '=' * 50 + ']')
-    time.sleep(0.1)
-    print('[{:^50}]'.format('1 - you have 2 chances to guess  '))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('2 - correct 1st time   = 3 points'))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('3 - correct 2nd time   = 1 points'))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('4 - incorrect 2nd time = lose    '))
-    time.sleep(0.1)
-    print('[' + '=' * 50 + ']')
+    print('[' + '=' * 76 + ']')
+    for i in range(1,5):
+        time.sleep(0.1)
+        if i == 1:
+            text = 'you have 2 chances to guess'
+        elif i == 2:
+            text = 'correct 1st time = 3 points'
+        elif i == 3:
+            text = 'correct 2nd time = 1 points'
+        elif i == 4:
+            text = 'incorrect 2nd time = you lose'
+        print('[{:^25}|{:^50}]'.format(i, text))
+        time.sleep(0.1)
+        print('[' + '=' * 76 + ']')
     time.sleep(0.1)
     print()
     time.sleep(0.1)
-
     enter_to_continue()
     main()
+    return
 
 ########################Used for Leaderboard#################
 
