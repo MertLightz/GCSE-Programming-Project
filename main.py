@@ -90,18 +90,20 @@ def checks():
                 time.sleep(1)
 
 def start_menu():
-    print('[' + '=' * 50 + ']')
-    time.sleep(0.1)
-    print('[{:^50}]'.format('1 - login   '))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('2 - register'))
-    time.sleep(0.1)
-    print('[{:^50}]'.format('3 - quit    '))
-    time.sleep(0.1)
-    print('[' + '=' * 50 + ']')
+    print('[' + '=' * 51 + ']')
+    for i in range(1,4):
+        time.sleep(0.1)
+        if i == 1:
+            text = 'login'
+        elif i == 2:
+            text = 'register'
+        elif i == 3:
+            text = 'quit'
+        print('[{:^25}|{:^25}]'.format(i, text))
+        time.sleep(0.1)
+        print('[' + '=' * 51 + ']')
     time.sleep(0.1)
     print()
-    time.sleep(0.1)
     return
 
 def start():
