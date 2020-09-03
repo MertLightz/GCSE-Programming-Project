@@ -1,10 +1,30 @@
 #GCSE Programming Project
-import time
-import random
-import requests
-global input_username
 
 ########################Used Globally########################
+def message(abc):
+    print('[' + '=' * 50 + ']')
+    time.sleep(0.1)
+    print('[{:^50}]'.format(abc))
+    time.sleep(0.1)
+    print('[' + '=' * 50 + ']')
+    time.sleep(0.1)
+    return
+
+def blank_page():
+    for i in range(0,100):
+        print()
+    return
+
+import time
+import random
+
+blank_page()
+try:
+    import requests
+except ModuleNotFoundError:
+    message('Requests module missing, creating empty files')
+    time.sleep(1)
+global input_username
 
 def enter_to_continue():
     print('[' + '=' * 50 + ']')
@@ -15,20 +35,6 @@ def enter_to_continue():
     time.sleep(0.1)
 
     input()
-    return
-
-def blank_page():
-    for i in range(0,100):
-        print()
-    return
-
-def message(abc):
-    print('[' + '=' * 50 + ']')
-    time.sleep(0.1)
-    print('[{:^50}]'.format(abc))
-    time.sleep(0.1)
-    print('[' + '=' * 50 + ']')
-    time.sleep(0.1)
     return
 
 def welcome():
@@ -77,13 +83,13 @@ def checks():
                 pass
             if i == 2:
                 try:
-                    url = 'https://raw.githubusercontent.com/MertLightz/GCSE-Programming-Project/master/songs.txt'
+                    url = 'https://raw.githubusercontent.com/m3rtngs/GCSE-Programming-Project/master/songs.txt'
                     r = requests.get(url, allow_redirects = True)
                     open('songs.txt', 'wb').write(r.content)
                     message('downloading songs.txt from GitHub')
                     time.sleep(1)
                 except:
-                    message('unable to download songs.txt due to WiFi issues')
+                    message('requests module missing/internet connection is bad')
                     time.sleep(1)
             else:
                 message('created ' + file_name)
