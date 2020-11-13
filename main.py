@@ -241,18 +241,11 @@ def register():
 ########################Used for Main Menu###################
 
 def main_menu():
+    main_menu_options = ['play', 'rules', 'leaderboard', 'quit']
     print('[' + '=' * 51 + ']')
-    for i in range(1,5):
+    for i in range(0,4):
         time.sleep(0.1)
-        if i == 1:
-            text = 'play'
-        elif i == 2:
-            text = 'rules'
-        elif i == 3:
-            text = 'leaderboard'
-        elif i == 4:
-            text = 'quit'
-        print('[{:^25}|{:^25}]'.format(i, text))
+        print('[{:^25}|{:^25}]'.format(i+1, main_menu_options[i]))
         time.sleep(0.1)
         print('[' + '=' * 51 + ']')
     time.sleep(0.1)
