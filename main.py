@@ -96,16 +96,10 @@ def checks():
                 time.sleep(1)
 
 def start_menu():
+    start_menu_options = ['login', 'register', 'quit']
     print('[' + '=' * 51 + ']')
-    for i in range(1,4):
-        time.sleep(0.1)
-        if i == 1:
-            text = 'login'
-        elif i == 2:
-            text = 'register'
-        elif i == 3:
-            text = 'quit'
-        print('[{:^25}|{:^25}]'.format(i, text))
+    for i in range(0,3):
+        print('[{:^25}|{:^25}]'.format(i+1, start_menu_options[i]))
         time.sleep(0.1)
         print('[' + '=' * 51 + ']')
     time.sleep(0.1)
